@@ -50,6 +50,7 @@ const App = (props:AppProps)=>{
 
 const AppContainer = styled(Container)`
   min-height:100vh;
+  min-width:309px;
   flex-direction:column;
   display:flex;
   align-items: center;

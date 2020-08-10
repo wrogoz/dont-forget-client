@@ -1,28 +1,59 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import styled from 'styled-components'
+import AppButton from './components/button'
+
+
 
 const RegisterComponent = ()=>{
+    const [name, setname] = useState('')
+    const [surname, setsurname] = useState('')
+    const [email, setemail] = useState('')
+    const [password, setpassword] = useState('')
+
+    const changeNameHandler = (e:any)=>{
+        setname(e.currentTarget.value)
+    }
+
+    const changeSurnameHandler = (e:any)=>{
+        setsurname(e.target.value)
+    }
+    const changePasswordHandler = (e:any)=>{
+        setpassword(e.target.value)
+    }
+    const changeEmailHandler = (e:any)=>{
+        setemail(e.target.value)
+    }
+    const onClickHandler = ()=>{
+        console.log(name,email,password,surname)
+       
+    }
     return(
         <StyledForm>
             <Form.Group>
+
             <Label>Email Address</Label>
-            <Form.Control type="email" placeholder = "enter email"/>
+            <Form.Control type="email" placeholder = "enter email" onChange={changeEmailHandler} value={email}/>
             </Form.Group>
             <Form.Group>
             <Label>Password</Label>
-            <Form.Control type="password" placeholder = "enter password"/>
+
+            <Form.Control type="password" placeholder = "enter password" onChange={changePasswordHandler} value={password}/>
             </Form.Group>
             <Form.Group>
             <Label>Name</Label>
-            <Form.Control type="password" placeholder = "name"/>
+
+            <Form.Control type="text" placeholder = "name" onChange={changeNameHandler} value={name}/>
             </Form.Group>
             <Form.Group>
             <Label>Surname</Label>
-            <Form.Control type="surname" placeholder = "surname"/>
+
+            <Form.Control type="text" placeholder = "surname" onChange={changeSurnameHandler} value={surname}/>
             </Form.Group>
-            <StyledButton variant="light" size="lg" block>Register</StyledButton>
+            <AppButton 
+                onClick={onClickHandler}
+                text="Register"/>
+        
             </StyledForm>
 
     )
@@ -40,24 +71,7 @@ const StyledForm = styled(Form)`
 `
 
 
-const StyledButton = styled(Button)`
-    background-color:#61478A;
-    color:#fff;
-    margin-top: 35px;
-    &&:active{
-        background-color:#61478A ;
-        color:#fff;
-    }
-    &&:focus{
-        background-color:#61478A ;
-        color:#fff;
-    }
-    &&:hover{
-        background-color:#61478A ;
-        color:#fff;
-    }
-    
-`
+
 
 const Label =styled(Form.Label)`
     color:#777;
