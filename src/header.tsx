@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 const HeaderComponent=()=> {
+  console.log('testing merge')
     return (
         <HeaderRow>
         <Col >
